@@ -30,3 +30,93 @@
 /* Here should go your own CSS styles */
 /* You can also link them with a LESS @import */
 /* @import "my-styles.less"; */
+
+@gutter       : 1.5%;
+@rouge         : #E12121;
+a { text-decoration: none;}
+
+.size(@n, @of, @nGutter, @gutterW){
+		width:( @n * 100 / @of) - (@nGutter * @gutterW / (@nGutter + 1));
+}
+.prefix(@n, @of, @nGutter, @gutterW){
+		margin-left:( @n * 100 / @of) - (@nGutter * @gutterW / (@nGutter + 1));
+}
+.suffix(@n, @of, @nGutter, @gutterW){
+		margin-left:( @n * 100 / @of) - (@nGutter * @gutterW / (@nGutter + 1));
+}
+.push(@n, @of, @nGutter, @gutterW){
+		left:( @n * 100 / @of) - (@nGutter * @gutterW / (@nGutter + 1));
+}
+.pull(@n, @of, @nGutter, @gutterW){
+		left:-( @n * 100 / @of) - (@nGutter * @gutterW / (@nGutter + 1));
+}
+
+
+body {
+	background: #fff none;
+	border: 10px solid solid;
+	color:#fff;
+}
+
+#header {
+	background: #000 none;
+	position: fixed;
+
+
+	#logo {
+		margin:0 auto;
+		display:block;
+		img {
+			.size(1,5,0,@gutter);
+		}
+	}
+
+	
+}
+
+#membership {
+
+	position: fixed;
+	margin:5*@gutter 0;
+
+
+	&> div {
+
+		margin:@gutter 0;
+		padding:@gutter;
+		background: rgba(0,0,0,0.77) none;
+	}
+
+	h2 {
+		background: #fff none;
+		color:#000;
+		text-align: center;
+
+	}
+
+	li {
+		text-align: center;
+		border-bottom: 2px @rouge solid;
+		&.current {
+			background: @rouge none;
+		}
+	}
+	a {
+		color:#fff;
+		text-align: center;
+		font-size: 1.4em;
+		height: 30px;
+	}	
+
+}
+
+#informations {
+	padding:@gutter;
+	margin:30*@gutter 0;
+
+
+
+	.size(3,5,2,@gutter);	
+	background: rgba(0,0,0,0.77) none;
+}
+
